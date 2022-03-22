@@ -7,4 +7,8 @@ Domanda                                                                         
 
 .Selezionare tutti i corsi che valgono più di 10 crediti.                                            SELECT * FROM `courses` WHERE `cfu` =10;
 
-.Selezionare tutti i corsi del primo semestre del primo anno di un qualsiasi corso di laurea         SELECT * FROM `courses` WHERE period='I semestre' AND year='1'
+.Selezionare tutti i corsi del primo semestre del primo anno di un qualsiasi corso di laurea         SELECT * FROM `courses` WHERE 
+period='I semestre' AND year='1'
+
+
+.Selezionare tutti i corsi di laurea magistrale                                                       SELECT * FROM `degrees` WHERE `level`='magistrale'
