@@ -10,5 +10,17 @@ Domanda
 
 3-SELECT AVG(`vote`) AS 'media_voti', `exam_id` FROM `exam_student` GROUP BY `exam_id`
 
-4-SELECT COUNT(id) AS 'corsi_laurea', `name` FROM `name` GROUP BY `departments`;
+4-SELECT COUNT(`id`) AS 'corsi_laurea', `name` FROM `name` GROUP BY `departments`;
+
+JOIN
+
+Domanda
+
+1-SELECT  `students`.`id` AS 'n_stu_iscritti', `courses`.`name`, `courses`.`period`, `courses`.`year`, `degrees`.`id` AS 'id_laurea'
+FROM `courses`
+JOIN `degrees`
+ON `courses`.`degree_id` = `degrees`.`id`
+WHERE `degrees`.`name` = 'Corso di Laurea in Economia';
+
+2-
  
