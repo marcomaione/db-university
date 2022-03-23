@@ -1,0 +1,9 @@
+
+
+Group by
+
+Domanda
+
+1-SELECT COUNT(*) AS 'numero_di_iscritti_annui', `enrolment_date` FROM `students` GROUP BY `enrolment_date`
+
+2-
