@@ -49,4 +49,13 @@ FROM `students`
 JOIN `degrees`
 ON `students`.`degree_id`= `degree`.`id`; 
 ORDER BY `cognome`, `nome`;
- 
+
+
+5-SELECT `degrees`.`name` AS `degree`,`teachers`.`name` as 'prof_name',`teachers`.`surname` AS 'prof_surname', `courses`.`name` AS 'course'
+FROM `degrees`
+JOIN `courses`
+ON `courses`.`degree_id` = `degree_id`
+JOIN `courses_teachers`
+ON `courses_teachers`.`courses_id`= `courses`.`id`
+JOIN `teachers`
+ON `courses_teachers`.`teachers_id` = `teachers`.`id`
