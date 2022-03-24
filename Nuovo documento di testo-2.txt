@@ -72,3 +72,18 @@ ON `degrees`.`id = `courses`.`degree_id`
 JOIN `departments`
 ON `department`.`id`= `degrees`.`department_id`
 WHERE `departments`.`name` = 'Dipartimento di Matematica';
+
+
+BONUS
+
+7-SELECT COUNT(`exam_student`.`exam_id`) as 'tentativi', 
+MAX(`exam_student`.`vote`) as 'voto_massimo',`students`.`name`as 'nome_studente',`students`.`surname` as 'cognome_studente',`courses`.`name` as 'corso'
+FROM `exam_student`
+JOIN `exams`
+ON `exam_student`.`exam_id`=`exam`.`id`
+JOIN `courses`
+ON `courses`.`id` = `exams`.`courses_id`
+JOIN `students`
+ON `exam_student`.`student_id`= `student`.`id`
+GROUP BY`students`.`id`, `courses`.`id`
+HAVING 'voto_massimo' >=18;
