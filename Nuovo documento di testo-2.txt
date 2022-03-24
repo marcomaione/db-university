@@ -12,6 +12,10 @@ Domanda
 
 4-SELECT COUNT(`id`) AS 'corsi_laurea', `department_id` FROM `degrees` GROUP BY `department_id`;
 
+
+//-------------------------------------------------------------------------------------------------------------------------------------------//
+
+
 JOIN
 
 Domanda
@@ -22,11 +26,27 @@ JOIN `degrees`
 ON `degrees`.`id` = `students`.`degree_id`
 WHERE `degrees`.`name` = 'Corso di Laurea in Economia';
 
+
 2-SELECT *
 FROM `departments`
 JOIN `degrees`
 ON `departments`.`id` = `degrees`.`department_id`
 WHERE `departments`.`name` = 'Dipartimento di Neuroscienze';
 
-3-SELECT
+
+3-SELECT `teachers`.`id`, `teachers`.`name`,`teachers`.`surname`, `courses`.`name` AS 'corso'
+FROM `teachers`
+JOIN `courses_teachers`
+ON `teachers`.`id`= `courses_teachers`.`teachers_id`
+JOIN `courses`
+ON `courses_teachers`.`courses_id`= `courses`.`id`
+WHERE `teachers`.`name`='fulvio'
+AND `teachers`.`surname`= 'amato`;
+
+
+4-SELECT `students`.`name` AS 'nome', `students`.`surname` AS 'cognome', `degrees`.`name`AS 'nome_corso', `departments`.`name` AS 'nome_dipartimento'
+FROM `students`
+JOIN `degrees`
+ON `students`.`degree_id`= `degree`.`id`; 
+ORDER BY `cognome`, `nome`;
  
