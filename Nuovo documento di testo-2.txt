@@ -58,4 +58,17 @@ ON `courses`.`degree_id` = `degree_id`
 JOIN `courses_teachers`
 ON `courses_teachers`.`courses_id`= `courses`.`id`
 JOIN `teachers`
+ON `courses_teachers`.`teachers_id` = `teachers`.`id;
+
+
+6-SELECT DISTINCT `teachers`.`name` as 'nome_insegnante', `teachers`.`surname`as 'cognome_insegnante', `departments`.`name` as 'nome_dipartimento'
+FROM `teachers`
+JOIN `courses_teachers`
 ON `courses_teachers`.`teachers_id` = `teachers`.`id`
+JOIN `courses`
+ON `courses`.`id` = `courses_teacher`.courses_id`
+JOIN `degrees`
+ON `degrees`.`id = `courses`.`degree_id`
+JOIN `departments`
+ON `department`.`id`= `degrees`.`department_id`
+WHERE `departments`.`name` = 'Dipartimento di Matematica';
